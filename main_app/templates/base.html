@@ -12,6 +12,7 @@
 </head>
 <body>
     <nav>
+        <a href="{% url 'home' %}">LoveStruck</a>
         <a href="{% url 'location_index' %}">View All Date Spots</a>
         <a href="{% url 'location_create' %}">Add a Date Spot</a>
     {% if user.is_authenticated %}
