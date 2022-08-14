@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Location Details</h1>
+<div class="container">
+  <div class="row">
+  
+    <div class="col s3">
+      <!-- Grey navigation panel -->
+      <button type="submit" class="btn">Edit</button>
+      <button type="submit" class="btn">Delete</button>
+    </div>
+  
+    <div class="col s9">
+      <h2>{{ location.name }}</h2>
+      <ul>
+        <li>Address: {{location.address}}</li>
+        <li>Phone Number: {{location.phone_num}}</li>
+        <li>City: {{location.city}}</li>
+        <li>State: {{location.state}}</li>
+        <li>Category: {{location.category}}</li>
+      </ul>
+    </div>
+  
+  </div>
+</div>
+
+
+{% endblock %}

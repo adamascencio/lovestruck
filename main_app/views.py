@@ -9,19 +9,6 @@ from .models import Location
 def home(request):
     return render(request, 'home.html')
 
-class LocationList(ListView):
-    model = Location
-    fields = ['name', 'category', 'city', 'state']
-
-class LocationCreate(CreateView):
-    model = Location
-    fields = ['name', 'address', 'phone_num', 'city', 'state', 'category']
-    success_url = '/location/'
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-
 def signup(request): 
     error_message = ''
     if request.method == 'POST':
@@ -35,3 +22,19 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+class LocationList(ListView):
+    model = Location
+    fields = ['name', 'category', 'city', 'state']
+
+class LocationCreate(CreateView):
+    model = Location
+    fields = ['name', 'address', 'phone_num', 'city', 'state', 'category']
+    success_url = '/location/'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class LocationDetail(DetailView):
+    model = Location
