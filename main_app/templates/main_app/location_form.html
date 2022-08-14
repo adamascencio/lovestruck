@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Add Date Spot</h1>
+{% if object %}
+  <h1>Edit Date Spot</h1>
+{% else %}
+  <h1>Add Date Spot</h1>
+{% endif %}
 <form action="" method="POST">
   {% csrf_token %}
   <table>
