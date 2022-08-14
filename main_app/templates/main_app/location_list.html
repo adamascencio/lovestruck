@@ -2,11 +2,15 @@
 {% block content %}
 
 <h1>Location List</h1>
-<div class="card">
-  <div class="card-content">
-    <span class="card-title">{{ loc.name }}</span>
-    <p>Color: {{ loc.color }}</p>
+{% for l in location_list %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ l.name }}</span>
+      <p>City: {{ l.city }}</p>
+      <p>State: {{ l.state }}</p>
+      <p>Category: {{ l.category }}</p>
+    </div>
   </div>
-</div>
+{% endfor %}
 
 {% endblock %}
