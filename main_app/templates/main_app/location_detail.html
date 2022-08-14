@@ -6,8 +6,8 @@
   
     <div class="col s3">
       <!-- Grey navigation panel -->
-      <button type="submit" class="btn">Edit</button>
-      <button type="submit" class="btn">Delete</button>
+      <button type="submit" class="btn"><a href="{% url 'location_update' location.id %}">Edit</a></button>
+      <button type="submit" class="btn"><a href="{% url 'location_delete' location.id %}">Delete</a></button>
     </div>
   
     <div class="col s9">

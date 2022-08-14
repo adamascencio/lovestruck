@@ -1,3 +1,4 @@
+from unicodedata import category
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -38,3 +39,11 @@ class LocationCreate(CreateView):
 
 class LocationDetail(DetailView):
     model = Location
+
+class LocationUpdate(UpdateView):
+    model = Location
+    fields = ['name', 'address', 'phone_num', 'city', 'state', 'category']
+
+class LocationDelete(DeleteView):
+    model = Location
+    success_url = '/location/'
