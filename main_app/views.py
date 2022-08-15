@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login 
 from django.contrib.auth.forms import UserCreationForm
-from .models import Location, Partner
+from .models import Location, Partner, Date
 
 # Create your views here.
 def home(request):
@@ -71,4 +71,7 @@ class PartnerUpdate(UpdateView):
 class PartnerDelete(DeleteView):
     model = Partner
     success_url = '/partners/'
+
+class DateList(ListView):
+    model = Date
     
