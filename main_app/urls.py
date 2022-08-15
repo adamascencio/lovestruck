@@ -14,4 +14,5 @@ urlpatterns = [
     path('partners/<int:pk>/', views.PartnerDetail.as_view(), name='partner_detail'),
     path('partners/<int:pk>/update', views.PartnerUpdate.as_view(), name='partner_update'),
     path('partners/<int:pk>/delete', views.PartnerDelete.as_view(), name='partner_delete'),
+    path('dates/', views.DateList.as_view(), name='date_index'),
 ]
