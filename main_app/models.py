@@ -31,10 +31,11 @@ class Partner(models.Model):
   def get_absolute_url(self):
     return reverse('partner_detail', kwargs={'pk': self.id})
 
+
 class Date(models.Model):
   activity = models.CharField(max_length=200)
   budget = models.DecimalField(max_digits=10, decimal_places=2)
-  rating = models.IntegerField()
+  rating = models.PositiveIntegerField()
   reservation = models.BooleanField(default=False)
   date = models.DateField(default=date.today)
   notes = models.TextField(max_length=1000, blank=True)
