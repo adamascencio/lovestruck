@@ -3,5 +3,6 @@
 <h1>Partner Details</h1>
 <p>Name: {{partner.name}}</p>
 <p>Notes: {{partner.notes}}</p>
-
+<a href="{% url 'partner_update' partner.id %}">Edit</a>
+<a href="{% url 'partner_delete' partner.id %}">Delete</a>
 {% endblock %}

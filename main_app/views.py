@@ -63,3 +63,12 @@ class PartnerCreate(CreateView):
 class PartnerDetail(DetailView):
     model = Partner
     fields = '__all__'
+
+class PartnerUpdate(UpdateView):
+    model = Partner
+    fields = '__all__'
+
+class PartnerDelete(DeleteView):
+    model = Partner
+    success_url = '/partners/'
+    

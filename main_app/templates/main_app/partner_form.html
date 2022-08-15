@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h1>Add a Partner</h1>
+{% if object %}
+  <h1>Edit Partner</h1>
+{% else %}
+  <h1>Add a Partner</h1>
+{% endif %}
 <form action="" method="POST">
   {% csrf_token %}
   <table>
