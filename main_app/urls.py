@@ -10,4 +10,5 @@ urlpatterns = [
     path('locations/<int:pk>/update', views.LocationUpdate.as_view(), name='location_update'),
     path('locations/<int:pk>/delete', views.LocationDelete.as_view(), name='location_delete'),
     path('partners/', views.PartnerList.as_view(), name='partner_index'),
+    path('partners/create/', views.PartnerCreate.as_view(), name='partner_create'),
 ]

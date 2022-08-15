@@ -50,3 +50,12 @@ class LocationDelete(DeleteView):
 class PartnerList(ListView):
     model = Partner
     fields = ['name']
+
+class PartnerCreate(CreateView):
+    model = Partner
+    fields = '__all__'
+    success_url = '/partners/'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
