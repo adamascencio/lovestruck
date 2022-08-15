@@ -13,10 +13,17 @@ class Location(models.Model):
   city = models.CharField(max_length=50)
   state = models.CharField(max_length=2)
   category = models.CharField(max_length=50)
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self): 
     return f'Name: {self.name}, ({self.id})'
 
   def get_absolute_url(self):
     return reverse('location_detail', kwargs={'pk': self.id})
+
+
+class Partner(models.Model):
+  name = models.CharField(max_length=100)
+  notes = models.TextField(max_length=1000, blank=True)
+
+  def __str__(self):
+    return f'Name: {self.name}, ({self.id})'
