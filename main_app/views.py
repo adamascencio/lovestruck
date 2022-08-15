@@ -59,3 +59,16 @@ class PartnerCreate(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+class PartnerDetail(DetailView):
+    model = Partner
+    fields = '__all__'
+
+class PartnerUpdate(UpdateView):
+    model = Partner
+    fields = '__all__'
+
+class PartnerDelete(DeleteView):
+    model = Partner
+    success_url = '/partners/'
+    

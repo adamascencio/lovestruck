@@ -27,3 +27,6 @@ class Partner(models.Model):
 
   def __str__(self):
     return f'Name: {self.name}, ({self.id})'
+
+  def get_absolute_url(self):
+    return reverse('partner_detail', kwargs={'pk': self.id})

@@ -6,7 +6,11 @@
 {% for person in partner_list %}
   <div class="card">
     <div class="card-content">
-      <a href=""><span class="card-title">{{ person.name }}</span></a>
+      <span class="card-title">{{ person.name }}</span>
+      <p>Notes: {{ person.notes }}</p>
+    </div>
+    <div class="card-action">
+      <a href="{% url 'partner_detail' person.id %}"> View Details</a>
     </div>
   </div>
 {% endfor %}

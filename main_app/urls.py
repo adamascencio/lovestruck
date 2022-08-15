@@ -11,4 +11,7 @@ urlpatterns = [
     path('locations/<int:pk>/delete', views.LocationDelete.as_view(), name='location_delete'),
     path('partners/', views.PartnerList.as_view(), name='partner_index'),
     path('partners/create/', views.PartnerCreate.as_view(), name='partner_create'),
+    path('partners/<int:pk>/', views.PartnerDetail.as_view(), name='partner_detail'),
+    path('partners/<int:pk>/update', views.PartnerUpdate.as_view(), name='partner_update'),
+    path('partners/<int:pk>/delete', views.PartnerDelete.as_view(), name='partner_delete'),
 ]
