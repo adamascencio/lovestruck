@@ -34,7 +34,7 @@ class Partner(models.Model):
 class Date(models.Model):
   activity = models.CharField(max_length=200)
   budget = models.DecimalField(max_digits=10, decimal_places=2)
-  rating = models.IntegerField(max_length=10)
+  rating = models.IntegerField()
   reservation = models.BooleanField(default=False)
   date = models.DateField(default=date.today)
   notes = models.TextField(max_length=1000, blank=True)
