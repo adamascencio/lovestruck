@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Partners</h1>
+
+{% for person in partner_list %}
+  <div class="card">
+    <div class="card-content">
+      <a href=""><span class="card-title">{{ person.name }}</span></a>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login 
 from django.contrib.auth.forms import UserCreationForm
-from .models import Location
+from .models import Location, Partner
 
 # Create your views here.
 def home(request):
@@ -31,7 +31,6 @@ class LocationList(ListView):
 class LocationCreate(CreateView):
     model = Location
     fields = ['name', 'address', 'phone_num', 'city', 'state', 'category']
-    success_url = '/location/'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -46,4 +45,8 @@ class LocationUpdate(UpdateView):
 
 class LocationDelete(DeleteView):
     model = Location
-    success_url = '/location/'
+    success_url = '/locations/'
+
+class PartnerList(ListView):
+    model = Partner
+    fields = ['name']
