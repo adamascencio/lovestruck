@@ -74,4 +74,8 @@ class PartnerDelete(DeleteView):
 
 class DateList(ListView):
     model = Date
-    
+
+class DateCreate(CreateView):
+    model = Date
+    fields = ['activity', 'budget', 'rating', 'reservation', 'date', 'notes', 'location', 'partner']
+    success_url = '/dates/'

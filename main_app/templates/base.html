@@ -16,6 +16,7 @@
         <a href="{% url 'location_index' %}">View All Date Spots</a>
     {% if user.is_authenticated %}
         <a href="{% url 'date_index' %}">View All Dates</a>
+       
         <a href="{% url 'location_create' %}">Add a Date Spot</a>
         <a href="{% url 'partner_index' %}">View All Partners</a>
         <a href="{% url 'partner_create' %}">Add a Partner</a>
