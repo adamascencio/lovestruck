@@ -38,6 +38,10 @@ class LocationCreate(CreateView):
 
 class LocationDetail(DetailView):
     model = Location
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['partner_list'] = Partner.objects.filter(user=self.request.user)
+        return context
 
 class LocationUpdate(UpdateView):
     model = Location
@@ -53,7 +57,7 @@ class PartnerList(ListView):
 
 class PartnerCreate(CreateView):
     model = Partner
-    fields = '__all__'
+    fields = ['name', 'notes']
     success_url = '/partners/'
 
     def form_valid(self, form):
