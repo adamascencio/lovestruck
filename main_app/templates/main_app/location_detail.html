@@ -21,15 +21,15 @@
         <li>Category: {{location.category}}</li>
       </ul>
       <h2>Partner Listing</h2>
-      <form action="" method="POST">
+      <form action="{% url 'date_create' %}" method="POST">
         {% csrf_token %}
         <select name="partner_id">
           {% for partner in partner_list %}
           <option value="{{ partner.id }}">{{ partner.name }}</option>
           {% endfor %}
         </select>
-        <input type="hidden" name="location_id" value="location.id">
-        <button type="submit">Add a Date</button>
+        <input type="hidden" name="location_id" value="{{ location.id }}">
+        <button class="btn" type="submit">Add a Date</button>
       </form>
     </div>
   

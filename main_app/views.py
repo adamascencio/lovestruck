@@ -1,4 +1,5 @@
 from unicodedata import category
+from urllib import request
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
@@ -84,5 +85,10 @@ class DateList(ListView):
 
 class DateCreate(CreateView):
     model = Date
-    fields = ['activity', 'budget', 'rating', 'date', 'notes']
+    form_class = DateForm
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.location_id = self.kwargs['location_id']
+        form.instance.partner_id = self.kwargs['partner_id']
+        return super().form_valid(form)
     success_url = '/dates/'
