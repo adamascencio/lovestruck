@@ -13,6 +13,7 @@ class Location(models.Model):
   city = models.CharField(max_length=50)
   state = models.CharField(max_length=2)
   category = models.CharField(max_length=50)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self): 
     return f'Name: {self.name}, ({self.id})'
