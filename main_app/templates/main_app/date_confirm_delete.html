@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content%}
+<h1>Delete Date</h1>
+<h4>Are you sure you want to delete this date?</h4>
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" class="btn" value="Delete">
+  <a href="{% url 'date_detail' date.id%}">Cancel</a>
+</form>
+
+{% endblock %}
