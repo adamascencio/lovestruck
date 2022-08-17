@@ -16,4 +16,5 @@ urlpatterns = [
     path('partners/<int:pk>/delete', views.PartnerDelete.as_view(), name='partner_delete'),
     path('dates/', views.DateList.as_view(), name='date_index'),
     path('dates/create/', views.DateCreate.as_view(), name='date_create'),
+    # path('dates/<int:location_id>/create/', views.date_create , name='date_create'),
 ]
