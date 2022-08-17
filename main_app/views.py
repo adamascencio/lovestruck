@@ -96,3 +96,11 @@ class DateCreate(CreateView):
 
 class DateDetail(DetailView):
     model = Date
+
+class DateUpdate(UpdateView):
+    model = Date
+    fields = ['activity', 'date', 'budget', 'rating', 'notes']
+
+class DateDelete(DeleteView):
+    model = Date
+    success_url = '/dates/'

@@ -8,5 +8,7 @@
 <p>Date: {{ date.date }}</p>
 <p>Partner: {{ date.partner.name }}</p>
 <p>Location: {{ date.location.name }}</p>
+<button type="submit" class="btn"><a href="{% url 'date_update' date.id %}">Edit</a></button>
+<button type="submit" class="btn"><a href="{% url 'date_delete' date.id %}">Delete</a></button>
 
 {% endblock %}

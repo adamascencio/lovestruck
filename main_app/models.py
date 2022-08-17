@@ -46,3 +46,6 @@ class Date(models.Model):
 
   def __str__(self):
     return f'Date: {self.activity} ({self.id})'
+
+  def get_absolute_url(self):
+    return reverse('date_detail', kwargs={'pk': self.id})
