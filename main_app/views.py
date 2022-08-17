@@ -1,5 +1,3 @@
-from unicodedata import category
-from urllib import request
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
@@ -45,6 +43,7 @@ class LocationDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['partner_list'] = Partner.objects.filter(user=self.request.user)
+        context['date_form'] = DateForm()
         return context
 
 class LocationUpdate(UpdateView):
@@ -82,13 +81,15 @@ class PartnerDelete(DeleteView):
 
 class DateList(ListView):
     model = Date
+    fields = ['location', 'partner']
 
 class DateCreate(CreateView):
     model = Date
     form_class = DateForm
+
     def form_valid(self, form):
+        form.instance.partner_id = self.request.POST.get('partner_id')
+        form.instance.location_id = self.request.POST.get('location_id')
         form.instance.user = self.request.user
-        form.instance.location_id = self.kwargs['location_id']
-        form.instance.partner_id = self.kwargs['partner_id']
         return super().form_valid(form)
     success_url = '/dates/'
