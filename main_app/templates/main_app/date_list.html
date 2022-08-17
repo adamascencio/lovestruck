@@ -9,6 +9,9 @@
       <p>Partner: {{ date.partner.name }}</p>
       <p>Date: {{ date.date }}</p>
     </div>
+    <div class="card-action">
+      <a href="{% url 'date_detail' date.id %}"> View Details</a>
+    </div>
   </div>
 {% endfor %}
 {% endblock %}

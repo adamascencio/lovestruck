@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Date Details</h1>
+<p>Activity: {{ date.activity }}</p>
+<p>Budget: {{ date.budget }}</p>
+<p>Rating: {{ date.rating }}</p>
+<p>Notes: {{ date.notes }}</p>
+<p>Date: {{ date.date }}</p>
+<p>Partner: {{ date.partner.name }}</p>
+<p>Location: {{ date.location.name }}</p>
+
+{% endblock %}

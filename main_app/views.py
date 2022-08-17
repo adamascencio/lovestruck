@@ -93,3 +93,6 @@ class DateCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
     success_url = '/dates/'
+
+class DateDetail(DetailView):
+    model = Date
