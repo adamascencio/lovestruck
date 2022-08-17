@@ -20,7 +20,7 @@
         <a href="{% url 'location_create' %}">Add a Date Spot</a>
         <a href="{% url 'partner_index' %}">View All Partners</a>
         <a href="{% url 'partner_create' %}">Add a Partner</a>
-        <a href="{% url 'logout' %}">Log Out</a>
+        <a class="right" href="{% url 'logout' %}">Log Out</a>
     {% else %}
         <a href="{% url 'login' %}">Log In</a>
         <a href="{% url 'signup' %}">Sign Up</a>
