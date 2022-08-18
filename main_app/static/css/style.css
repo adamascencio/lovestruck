@@ -11,6 +11,11 @@ h2 {
   margin-top: 0;
 }
 
+img {
+  width: 50%;
+  border-radius: 100%;
+}
+
 .card {
   width: 30vw;
   max-width: 280px;
