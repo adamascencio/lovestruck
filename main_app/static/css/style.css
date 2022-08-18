@@ -12,8 +12,9 @@ h2 {
 }
 
 img {
-  width: 50%;
-  border-radius: 100%;
+  width: 60%;
+  border-radius: 10%;
+  max-width: 250px;
 }
 
 .card {
@@ -23,6 +24,18 @@ img {
 
 .card-title {
   font-weight: bold !important;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .margin {
@@ -98,7 +111,7 @@ nav {
   font-weight: bold;
 }
 
-/* Add & Edit Forms */
+/* Add and Edit Forms */
 
 .flex-form {
   display: flex;
