@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login 
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Location, Partner, Date
 from .forms import DateForm
 
@@ -26,11 +27,13 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
+
 class LocationList(ListView):
     model = Location
     fields = ['name', 'category', 'city', 'state']
 
-class LocationCreate(CreateView):
+
+class LocationCreate(LoginRequiredMixin, CreateView):
     model = Location
     fields = ['name', 'address', 'phone_num', 'city', 'state', 'category']
 
@@ -38,7 +41,7 @@ class LocationCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class LocationDetail(DetailView):
+class LocationDetail(LoginRequiredMixin, DetailView):
     model = Location
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -46,19 +49,23 @@ class LocationDetail(DetailView):
         context['date_form'] = DateForm()
         return context
 
-class LocationUpdate(UpdateView):
+
+class LocationUpdate(LoginRequiredMixin, UpdateView):
     model = Location
     fields = ['name', 'address', 'phone_num', 'city', 'state', 'category']
 
-class LocationDelete(DeleteView):
+
+class LocationDelete(LoginRequiredMixin, DeleteView):
     model = Location
     success_url = '/locations/'
 
-class PartnerList(ListView):
+
+class PartnerList(LoginRequiredMixin, ListView):
     model = Partner
     fields = ['name']
 
-class PartnerCreate(CreateView):
+
+class PartnerCreate(LoginRequiredMixin, CreateView):
     model = Partner
     fields = ['name', 'notes']
     success_url = '/partners/'
@@ -67,23 +74,28 @@ class PartnerCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class PartnerDetail(DetailView):
+
+class PartnerDetail(LoginRequiredMixin, DetailView):
     model = Partner
     fields = '__all__'
 
-class PartnerUpdate(UpdateView):
+
+class PartnerUpdate(LoginRequiredMixin, UpdateView):
     model = Partner
     fields = '__all__'
 
-class PartnerDelete(DeleteView):
+
+class PartnerDelete(LoginRequiredMixin, DeleteView):
     model = Partner
     success_url = '/partners/'
 
-class DateList(ListView):
+
+class DateList(LoginRequiredMixin, ListView):
     model = Date
     fields = ['location', 'partner']
 
-class DateCreate(CreateView):
+
+class DateCreate(LoginRequiredMixin, CreateView):
     model = Date
     form_class = DateForm
 
@@ -94,13 +106,16 @@ class DateCreate(CreateView):
         return super().form_valid(form)
     success_url = '/dates/'
 
-class DateDetail(DetailView):
+
+class DateDetail(LoginRequiredMixin, DetailView):
     model = Date
 
-class DateUpdate(UpdateView):
+
+class DateUpdate(LoginRequiredMixin, UpdateView):
     model = Date
     fields = ['activity', 'date', 'budget', 'rating', 'notes']
 
-class DateDelete(DeleteView):
+
+class DateDelete(LoginRequiredMixin, DeleteView):
     model = Date
     success_url = '/dates/'
