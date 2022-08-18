@@ -6,8 +6,10 @@
   
     <div class="col s3">
       <!-- Grey navigation panel -->
-      <button type="submit" class="btn"><a href="{% url 'location_update' location.id %}">Edit</a></button>
-      <button type="submit" class="btn"><a href="{% url 'location_delete' location.id %}">Delete</a></button>
+      {% if user == self.user %}
+        <button type="submit" class="btn"><a href="{% url 'location_update' location.id %}">Edit</a></button>
+        <button type="submit" class="btn"><a href="{% url 'location_delete' location.id %}">Delete</a></button>
+      {% endif %}
 
     </div>
   
@@ -20,18 +22,22 @@
         <li>State: {{location.state}}</li>
         <li>Category: {{location.category}}</li>
       </ul>
-      <h2>Partner Listing</h2>
-      <form action="{% url 'date_create' %}" method="POST">
-        {% csrf_token %}
-        <select name="partner_id">
-          {% for partner in partner_list %}
-          <option value="{{ partner.id }}">{{ partner.name }}</option>
-          {% endfor %}
-        </select>
-        {{ date_form.as_p }}
-        <input type="hidden" name="location_id" value="{{ location.id }}">
-        <button class="btn" type="submit">Add a Date</button>
-      </form>
+      {% if partner_list.count > 0 %}
+        <h2>Partner Listing</h2>
+        <form action="{% url 'date_create' %}" method="POST">
+          {% csrf_token %}
+          <select name="partner_id">
+            {% for partner in partner_list %}
+            <option value="{{ partner.id }}">{{ partner.name }}</option>
+            {% endfor %}
+          </select>
+          {{ date_form.as_p }}
+          <input type="hidden" name="location_id" value="{{ location.id }}">
+          <button class="btn" type="submit">Add a Date</button>
+        </form>
+      {% else %}
+        <h2>Keep on swiping</h2>
+      {% endif %}
     </div>
   
   </div>

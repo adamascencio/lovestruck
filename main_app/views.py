@@ -94,6 +94,12 @@ class DateList(LoginRequiredMixin, ListView):
     model = Date
     fields = ['location', 'partner']
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['date_list'] = Date.objects.filter(
+            user=self.request.user)
+        return context
+
 
 class DateCreate(LoginRequiredMixin, CreateView):
     model = Date
@@ -110,6 +116,11 @@ class DateCreate(LoginRequiredMixin, CreateView):
 class DateDetail(LoginRequiredMixin, DetailView):
     model = Date
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['partner_list'] = Partner.objects.filter(
+            user=self.request.user)
+        return context
 
 class DateUpdate(LoginRequiredMixin, UpdateView):
     model = Date
