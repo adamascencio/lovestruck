@@ -5,6 +5,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from .models import Location, Partner, Date
 from .forms import DateForm
 
@@ -41,8 +43,14 @@ class LocationCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class LocationDetail(LoginRequiredMixin, DetailView):
+
+class LocationDetail(DetailView):
     model = Location
+    
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+        
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['partner_list'] = Partner.objects.filter(user=self.request.user)
@@ -63,6 +71,12 @@ class LocationDelete(LoginRequiredMixin, DeleteView):
 class PartnerList(LoginRequiredMixin, ListView):
     model = Partner
     fields = ['name']
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['partner_list'] = Partner.objects.filter(
+            user=self.request.user)
+        return context
 
 
 class PartnerCreate(LoginRequiredMixin, CreateView):
