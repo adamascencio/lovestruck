@@ -44,12 +44,8 @@ class LocationCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class LocationDetail(DetailView):
+class LocationDetail(LoginRequiredMixin, DetailView):
     model = Location
-    
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
         
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
