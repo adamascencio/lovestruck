@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if object %}
-  <h1>Edit Partner</h1>
+  <h1 class="center">Edit Partner</h1>
 {% else %}
-  <h1>Add a Partner</h1>
+  <h1 class="center">Add a Partner</h1>
 {% endif %}
-<form action="" method="POST">
+<form class="flex-form" action="" method="POST">
   {% csrf_token %}
   <table>
     {{ form.as_table }}

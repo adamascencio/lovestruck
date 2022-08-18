@@ -22,21 +22,26 @@
     <nav>
         {% if user.is_authenticated %}
         <div class="nav-wrapper">
-            <a class="left" href="{% url 'home' %}">LoveStruck</a>
-            <a class="right" href="{% url 'date_index' %}">View All Dates</a>
-            <div class="right">
-                <ul>
-                    <!-- Dropdown Trigger -->
-                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Locations</a></li>
-                    <!-- Dropdown Trigger -->
-                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Partners</a></li>
-                </ul>
-                <a href="{% url 'logout' %}">Log Out</a>
+                <a class="brand-logo" href="{% url 'home' %}">LoveStruck</a>
+                <div class="right flex-nav">
+                    <a class="padding" href="{% url 'date_index' %}">View All Dates</a>
+                    <ul>
+                        <!-- Dropdown Trigger -->
+                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Locations</a></li>
+                    </ul>
+                    <ul>
+                        <!-- Dropdown Trigger -->
+                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Partners</a></li>
+                    </ul>
+                    <a class="padding" href="{% url 'logout' %}">Log Out</a>
+                </div>
             </div>
-        </div>
         {% else %}
-            <a href="{% url 'login' %}">Log In</a>
-            <a href="{% url 'signup' %}">Sign Up</a>
+            <a class="brand-logo" href="{% url 'home' %}">LoveStruck</a>
+            <div class="logged-out-flex-nav">
+                <a href="{% url 'login' %}">Log In</a>
+                <a href="{% url 'signup' %}">Sign Up</a>
+            </div>
         {% endif %}
     </nav>
     <main>
@@ -46,8 +51,8 @@
 
 <script>
      document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.dropdown-trigger');
-            var instances = M.Dropdown.init(elems, alignment='right');
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems, alignment='right');
         });
 </script>
 </body>

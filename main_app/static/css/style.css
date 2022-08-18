@@ -1,13 +1,111 @@
-/* navbar */
-
-nav a {
-  margin-right: 20px;
+body {
+  background-color: rgb(234, 213, 213);
 }
 
+form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.card {
+  width: 30vw;
+  max-width: 280px;
+}
+
+.card-title {
+  font-weight: bold !important;
+}
+
+.margin {
+  margin: 0 auto;
+}
+
+/* Sections */
+
+.colored-section {
+  width: 100vw;
+  background-color: #ee6e73;
+  color: #fff;
+  padding: 40px 10px;
+}
+
+.white-section {
+  width: 100vw;
+  background-color: #fff;
+  padding: 40px 10px;
+}
+
+/* Sign In */
+#sign-in-form {
+  width: 30%;
+}
+
+/* Navbar */
 .btn > a {
   color: white;
 }
 
 select {
   display: initial;
+}
+
+nav {
+  padding: 0 2%;
+}
+
+.dropdown-content {
+  width: 175px !important;
+}
+
+.padding {
+  padding: 0 15px;
+}
+
+.padding:hover, .dropdown-trigger:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+
+.flex-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+.logged-out-flex-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 25px;
+  align-items: center;
+}
+
+.logged-out-flex-nav > a {
+  padding: 0 15px;
+}
+
+.logged-out-flex-nav > a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+
+/* Add & Edit Forms */
+
+.flex-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  border: 3px solid #534c4c;
+  padding: 20px;
+}
+
+.flex-form > .btn, 
+#sign-in-form > .btn,
+.blue-grey > .btn {
+  width: 100%;
 }
