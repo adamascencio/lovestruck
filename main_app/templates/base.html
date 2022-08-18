@@ -20,9 +20,9 @@
         <li><a href="{% url 'partner_create' %}">Add a Partner</a></li>
     </ul>
     <nav>
-        <a class="left brand-logo" href="{% url 'home' %}">LoveStruck</a>
         {% if user.is_authenticated %}
-            <div class="nav-wrapper">
+        <div class="nav-wrapper">
+                <a class="brand-logo" href="{% url 'home' %}">LoveStruck</a>
                 <div class="right flex-nav">
                     <a class="padding" href="{% url 'date_index' %}">View All Dates</a>
                     <ul>
@@ -37,6 +37,7 @@
                 </div>
             </div>
         {% else %}
+            <a class="brand-logo" href="{% url 'home' %}">LoveStruck</a>
             <div class="logged-out-flex-nav">
                 <a href="{% url 'login' %}">Log In</a>
                 <a href="{% url 'signup' %}">Sign Up</a>
