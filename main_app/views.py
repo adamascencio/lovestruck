@@ -14,7 +14,10 @@ from datetime import date
 
 # Create your views here.
 def home(request):
-    dates = Date.objects.all().filter(user=request.user, date=date.today())
+    if request.user.is_authenticated:
+        dates = Date.objects.filter(user=request.user, date=date.today())
+    else:
+        dates = ''
     return render(request, 'home.html', {'dates':dates})
 
 def signup(request): 
