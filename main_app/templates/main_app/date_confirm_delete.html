@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% block content%}
-<h1>Delete Date</h1>
-<h4>Are you sure you want to delete this date?</h4>
-<form action="" method="POST">
-  {% csrf_token %}
-  <input type="submit" class="btn" value="Delete">
-  <a href="{% url 'date_detail' date.id%}">Cancel</a>
-</form>
+<h1 class="center">Delete Date</h1>
+<div class="container">
+  <div class="delete-grid">
+    <h4 class="s2">Are you sure you want to delete this date?</h4>
+    <form class="s2 flex-row" action="" method="POST">
+      {% csrf_token %}
+      <input type="submit" class="btn delete-btn" value="Delete">
+      <button class="btn" type="submit"><a href="{% url 'date_detail' date.id%}">Cancel</a></button>
+    </form>
+  </div>
+</div>
 
 {% endblock %}
