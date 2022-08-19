@@ -22,21 +22,25 @@
 		</div>
 		<div>
 			{% if partner_list.count > 0 %}
-			<form id="add-date-form" class="location-grid flex-form" action="{% url 'date_create' %}" method="POST">
-				<h4 class="s2 center">You can't go by yourself... </h4>
-				{% csrf_token %}
-				<label for="partner_listing">Choose a Partner:</label>
-				<select name="partner_id" id="partner_listing">
-					{% for partner in partner_list %}
-					<option value="{{ partner.id }}">{{ partner.name }}</option>
-					{% endfor %}
-				</select>
-				{{ date_form }}
-				<input type="hidden" name="location_id" value="{{ location.id }}">
-				<button class="btn s2" type="submit">Add a Date</button>
-			</form>
+				<form id="add-date-form" class="location-grid flex-form" action="{% url 'date_create' %}" method="POST">
+					<h4 class="s2 center">You can't go by yourself... </h4>
+					{% csrf_token %}
+					<label for="partner_listing">Choose a Partner:</label>
+					<select name="partner_id" id="partner_listing">
+						{% for partner in partner_list %}
+						<option value="{{ partner.id }}">{{ partner.name }}</option>
+						{% endfor %}
+					</select>
+					{{ date_form }}
+					<input type="hidden" name="location_id" value="{{ location.id }}">
+					<button class="btn s2" type="submit">Add a Date</button>
+				</form>
 			{% else %}
-			<h3>Keep on swiping</h3>
+				<h4 class="center">You haven't added anyone to go out with yet...</h4>
+				<div class="box">
+					<h5>Click here to add some partners!</h3>
+						<a href="{% url 'partner_create' %}"><button class="btn">Add Partner</button></a>
+				</div>
 			{% endif %}
 		</div>
 	</div>

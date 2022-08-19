@@ -1,5 +1,6 @@
 body {
   background-color: rgb(234, 213, 213);
+  font-family: 'Montserrat', sans-serif;
 }
 
 form:not(.location-grid) {
@@ -15,6 +16,24 @@ img {
   width: 60%;
   border-radius: 10%;
   max-width: 250px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  width: 40%;
+  margin: 50px auto;
+  padding: 20px 25px;
+  border: 3px solid #b3b3b3;
+  border-radius: 10%;
+  gap: 20px;
+}
+
+.brand-logo {
+  font-family: 'Lobster', cursive;
 }
 
 .card:not(.partner-card) {
