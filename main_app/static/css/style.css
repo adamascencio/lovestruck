@@ -141,7 +141,8 @@ nav {
 /* Location Details */
 
 #add-date-form > label, 
-.location-grid > h5 {
+.location-grid > h, 
+.location-grid > label {
   color: black;
   font-size: 1.2rem;
 }
@@ -212,6 +213,11 @@ nav {
   margin-left: 15%;
 }
 
+.justify-self {
+  justify-self: center;
+  display: block;
+}
+
 /* List Views */
 .index-grid {
   display: grid;
@@ -227,7 +233,10 @@ nav {
   grid-template-columns: 1fr 1fr;
   border-radius: 10%;
   margin: 0 auto;
+  align-items: center;
+  justify-items: center;
   width: 70%;
+  row-gap: 10px;
 }
 
 .partner-card {
@@ -248,4 +257,34 @@ nav {
 
 .btn > a {
  margin: 0 auto !important;
+}
+
+/* Delete Forms */
+
+.delete-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  justify-items: center;
+  padding: 20px;
+  background-color: white;
+  border: 3px solid #534c4c;
+  border-radius: 10%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.delete-btn {
+  background-color: #ee6e73;
+}
+
+.delete-btn:hover {
+  background-color: #b14448;
+  font-weight: bold;
+}
+
+/* Edit Forms */
+.row-gap {
+  row-gap: 20px;
 }

@@ -17,8 +17,8 @@
 		<p>{{ date.partner.name }}</p>
 		<h4>Location</h4>
 		<p>{{ date.location.name }}</p>
-		<button type="submit" class="btn"><a href="{% url 'date_update' date.id %}">Edit</a></button>
-		<button type="submit" class="btn"><a href="{% url 'date_delete' date.id %}">Delete</a></button>
+		<a class="justify-self" href="{% url 'date_update' date.id %}"><button type="submit" class="btn">Edit</button></a>
+		<a class="justify-self" href="{% url 'date_delete' date.id %}"><button type="submit" class="btn">Delete</button></a>
 	</div>
 </div>
 
