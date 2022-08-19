@@ -9,11 +9,13 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from .models import Location, Partner, Date
 from .forms import DateForm
+from datetime import date
 
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    dates = Date.objects.all().filter(user=request.user, date=date.today())
+    return render(request, 'home.html', {'dates':dates})
 
 def signup(request): 
     error_message = ''
