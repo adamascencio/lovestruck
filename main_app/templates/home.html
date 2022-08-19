@@ -2,9 +2,11 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+{% if dates.count == 0 %}
+<h2 class="center margin-top">Schedule a Date Today</h2>
+{% else %}
 <h2 class="center margin-top">You Have a Date Today!</h2>
-
-
+{% endif %}
 {% for date in dates %}
 <div class="container">
       <div class="card home-card">
@@ -18,8 +20,6 @@
       </div>
 </div>
 	{% endfor %}
-            
-
 {% else %}
 	<section class="colored-section">
 		<div class="container">
