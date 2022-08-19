@@ -1,59 +1,58 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Location Details</h1>
 <div class="container">
-  <div class="row">
-  
-    <div class="col s3">
-      <!-- Grey navigation panel -->
-      {% if user == self.user %}
-        <button type="submit" class="btn"><a href="{% url 'location_update' location.id %}">Edit</a></button>
-        <button type="submit" class="btn"><a href="{% url 'location_delete' location.id %}">Delete</a></button>
-      {% endif %}
-
-    </div>
-  
-    <div class="col s9">
-      <h2>{{ location.name }}</h2>
-      <ul>
-        <li>Address: {{location.address}}</li>
-        <li>Phone Number: {{location.phone_num}}</li>
-        <li>City: {{location.city}}</li>
-        <li>State: {{location.state}}</li>
-        <li>Category: {{location.category}}</li>
-      </ul>
-      {% if partner_list.count > 0 %}
-        <h2>Partner Listing</h2>
-        <form action="{% url 'date_create' %}" method="POST">
-          {% csrf_token %}
-          <select name="partner_id">
-            {% for partner in partner_list %}
-            <option value="{{ partner.id }}">{{ partner.name }}</option>
-            {% endfor %}
-          </select>
-          {{ date_form.as_p }}
-          <input type="hidden" name="location_id" value="{{ location.id }}">
-          <button class="btn" type="submit">Add a Date</button>
-        </form>
-      {% else %}
-        <h2>Keep on swiping</h2>
-      {% endif %}
-    </div>
-  
-  </div>
+	<h1 class="center">{{ location.name }} Details</h1>
+	<div class="ld-detail-grid">
+		<div id="location-info" class="location-grid">
+			<h4 class="s2 center">Location Information</h4>
+			<h5>Address:</h5>
+			<p>{{location.address}}</p>
+			<h5>Phone Number:</h5>
+			<p>{{location.phone_num}}</p>
+			<h5>City:</h5>
+			<p>{{location.city}}</p>
+			<h5>State:</h5>
+			<p>{{location.state}}</p>
+			<h5>Category:</h5>
+			<p>{{location.category}}</p>
+			{% if user == location.user %}
+			<button type="submit" class="btn"><a href="{% url 'location_update' location.id %}">Edit</a></button>
+			<button type="submit" class="btn"><a href="{% url 'location_delete' location.id %}">Delete</a></button>
+			{% endif %}
+		</div>
+		<div>
+			{% if partner_list.count > 0 %}
+			<form id="add-date-form" class="location-grid flex-form" action="{% url 'date_create' %}" method="POST">
+				<h4 class="s2 center">You can't go by yourself... </h4>
+				{% csrf_token %}
+				<label for="partner_listing">Choose a Partner:</label>
+				<select name="partner_id" id="partner_listing">
+					{% for partner in partner_list %}
+					<option value="{{ partner.id }}">{{ partner.name }}</option>
+					{% endfor %}
+				</select>
+				{{ date_form }}
+				<input type="hidden" name="location_id" value="{{ location.id }}">
+				<button class="btn s2" type="submit">Add a Date</button>
+			</form>
+			{% else %}
+			<h3>Keep on swiping</h3>
+			{% endif %}
+		</div>
+	</div>
 </div>
 
 <script>
-  const dateEl = document.getElementById('id_date');
-  M.Datepicker.init(dateEl, {
-    format: 'yyyy-mm-dd',
-    defaultDate: new Date(),
-    setDefaultDate: true,
-    autoClose: true
-  });
+	const dateEl = document.getElementById('id_date');
+	M.Datepicker.init(dateEl, {
+		format: 'yyyy-mm-dd',
+		defaultDate: new Date(),
+		setDefaultDate: true,
+		autoClose: true
+	});
 
-  const selectEl = document.getElementById('id_meal');
-  M.FormSelect.init(selectEl);
+	const selectEl = document.getElementById('id_meal');
+	M.FormSelect.init(selectEl);
 </script>
 
 {% endblock %}
