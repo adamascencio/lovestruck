@@ -307,3 +307,16 @@ nav {
 .row-gap {
   row-gap: 20px;
 }
+
+/* Home Page */
+.card-image {
+  width: 100%;
+}
+
+.margin-top {
+  margin-top: 25px;
+}
+
+.home-card {
+  margin: 10px auto;
+}
