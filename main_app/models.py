@@ -49,3 +49,6 @@ class Date(models.Model):
 
   def get_absolute_url(self):
     return reverse('date_detail', kwargs={'pk': self.id})
+
+  class Meta:
+    ordering = ['-date']
