@@ -1,5 +1,5 @@
 # :love_letter: Lovestruck
-Love Struck is a date planning app that allows users to manage their busy dating schedules. The app provides amazing date ideas, recommended by other users, on where to take your partner out.
+Lovestruck is a date planning app that allows users to manage their busy dating schedules and keep track of their past events. The app provides amazing date ideas, recommended by other users, on where to take your partner out.
 
 ## :framed_picture: **Screenshots of App**
 <img src = https://i.imgur.com/7kL1KfS.jpg>
@@ -25,7 +25,7 @@ Love Struck is a date planning app that allows users to manage their busy dating
 
 [Google Slides Deck] (https://docs.google.com/presentation/d/1_C9JaBSYVeDgHVsHnY2Q-P-sXTuMCEwhj0w4nx1M2hU/edit#slide=id.p)
 
-## :fast_foward: **Next Steps (Icebox Features)**
+## :fast_forward: **Next Steps (Icebox Features)**
 - Allow users to provide feedback rating on how a date went.
 - Allow users to search and find a location within the application
 - Allow users to post photos of their experience
