@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>All Dates</h1>
-
-{% for date in date_list %}
-  <div class="card">
-    <div class="card-content">
-      <span class="card-title">{{ date.activity }}</span>
-      <p>Partner: {{ date.partner.name }}</p>
-      <p>Date: {{ date.date }}</p>
-    </div>
-    <div class="card-action">
-      <a href="{% url 'date_detail' date.id %}"> View Details</a>
-    </div>
-  </div>
-{% endfor %}
+<h1 class="center">All Dates</h1>
+<div class="container">
+	<div class="index-grid">
+		{% for date in date_list %}
+			<div class="card">
+				<div class="card-content">
+					<span class="card-title">{{ date.activity }}</span>
+					<p>Partner: {{ date.partner.name }}</p>
+					<p>Date: {{ date.date }}</p>
+				</div>
+				<div class="card-action">
+					<a href="{% url 'date_detail' date.id %}"> View Details</a>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
 {% endblock %}

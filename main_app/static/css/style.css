@@ -17,7 +17,7 @@ img {
   max-width: 250px;
 }
 
-.card {
+.card:not(.partner-card) {
   width: 30vw;
   max-width: 280px;
 }
@@ -30,6 +30,11 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .row {
@@ -175,4 +180,72 @@ nav {
 #location-info > button {
   width: 100px;
   margin: 0 auto;
+}
+
+/* Date Details */
+.date-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 35px 25px 35px;
+  background-color: white;
+  border: 3px solid #534c4c;
+  border-radius: 10%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.date-grid > button {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.date-grid > h4,
+.partner-grid > h4 {
+  margin-left: 30%;
+}
+
+.date-grid > p,
+.partner-grid > p {
+  font-size: 1.5rem;
+  margin-left: 15%;
+}
+
+/* List Views */
+.index-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px 10px;
+  justify-items: center;
+}
+
+/* Partner details */
+
+.partner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 10%;
+  margin: 0 auto;
+  width: 70%;
+}
+
+.partner-card {
+  margin: 0 auto;
+  width: 60%;
+  max-width: 500px;
+  border: 3px solid #534c4c;
+  margin-top: 75px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.btn > a {
+ margin: 0 auto !important;
 }

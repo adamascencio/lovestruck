@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Partner Details</h1>
-<p>Name: {{partner.name}}</p>
-<p>Notes: {{partner.notes}}</p>
-<a href="{% url 'partner_update' partner.id %}">Edit</a>
-<a href="{% url 'partner_delete' partner.id %}">Delete</a>
+<h1 class="center">Partner Details</h1>
+<div class="container">
+  <div class="card partner-card">
+    <div class="s2 card-content partner-grid">
+      <span class="card-title center s2">{{ partner.name }}</span>
+      <p class="s2">{{ partner.notes }}</p>
+    </div>
+    <div class="card-action flex-row s2">
+      <button class="btn"><a href="{% url 'partner_update' partner.id %}">Edit</a></button>
+      <button class="btn"><a href="{% url 'partner_delete' partner.id %}">Delete</a></button>
+    </div>
+  </div>
+</div>
 {% endblock %}

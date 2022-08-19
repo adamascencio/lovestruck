@@ -1,14 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Date Details</h1>
-<p>Activity: {{ date.activity }}</p>
-<p>Budget: {{ date.budget }}</p>
-<p>Rating: {{ date.rating }}</p>
-<p>Notes: {{ date.notes }}</p>
-<p>Date: {{ date.date }}</p>
-<p>Partner: {{ date.partner.name }}</p>
-<p>Location: {{ date.location.name }}</p>
-<button type="submit" class="btn"><a href="{% url 'date_update' date.id %}">Edit</a></button>
-<button type="submit" class="btn"><a href="{% url 'date_delete' date.id %}">Delete</a></button>
+<h1 class="center">Date Details</h1>
+<div class="container">
+	<div class="date-grid">
+		<h4>Activity</h4>
+		<p>{{ date.activity }}</p>
+		<h4>Budget</h4>
+		<p>{{ date.budget }}</p>
+		<h4>Rating</h4>
+		<p>{{ date.rating }}</p>
+		<h4>Notes</h4>
+		<p>{{ date.notes }}</p>
+		<h4>Date</h4>
+		<p>{{ date.date }}</p>
+		<h4>Partner</h4>
+		<p>{{ date.partner.name }}</p>
+		<h4>Location</h4>
+		<p>{{ date.location.name }}</p>
+		<button type="submit" class="btn"><a href="{% url 'date_update' date.id %}">Edit</a></button>
+		<button type="submit" class="btn"><a href="{% url 'date_delete' date.id %}">Delete</a></button>
+	</div>
+</div>
 
 {% endblock %}
