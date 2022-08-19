@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% block content %}
 
@@ -5,29 +6,15 @@
 {% for l in location_list %}
   <div class="card">
     <div class="card-content">
-      <h3>{{ l.name }}</h3>
+      <span class="card-title">{{ l.name }}</span>
+      <p>City: {{ l.city }}</p>
+      <p>State: {{ l.state }}</p>
+      <p>Category: {{ l.category }}</p>
     </div>
-    <div class="card-tabs">
-      <ul class="tabs tabs-fixed-width">
-        <li class="tab"><a href="#test1">City</a></li>
-        <li class="tab"><a href="#test2">Category</a></li>
-      </ul>
-    </div>
-    <div class="card-content grey lighten-4">
-      <div id="test1">{{ l.city }}, {{ l.state }}</div>
-      <div id="test2">{{ l.category }}</div>
-    </div>
-
     <div class="card-action">
       <a href="{% url 'location_detail' l.id %}"> View Details</a>
     </div>
   </div>
-  {% endfor %}
-  
-  <script>
-    var el = document.querySelector('.tabs');
-    var instance = M.Tabs.init(el);
-  </script>
-          
+{% endfor %}
 
 {% endblock %}
