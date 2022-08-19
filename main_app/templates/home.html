@@ -2,24 +2,20 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<h2 class="center margin-top">You Have a Date Today!</h2>
-
-
-{% for date in dates %}
-<div class="container">
-      <div class="card home-card">
-        <div class="card-image">
-          <img src="static/images/datenight.jpeg" alt="date-night-photo">
-          <a href="{% url 'date_detail' date.id %}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
-        </div>
-        <div class="card-content">
-          <p>{{ date.activity }}</p>
-        </div>
-      </div>
-</div>
+	<h2 class="center margin-top">You Have a Date Today!</h2>
+	{% for date in dates %}
+		<div class="container">
+			<div class="card home-card">
+				<div class="card-image">
+				<img src="static/images/datenight.jpeg" alt="date-night-photo">
+				<a href="{% url 'date_detail' date.id %}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
+				</div>
+				<div class="card-content">
+				<p>{{ date.activity }}</p>
+				</div>
+			</div>
+		</div>
 	{% endfor %}
-            
-
 {% else %}
 	<section class="colored-section">
 		<div class="container">
