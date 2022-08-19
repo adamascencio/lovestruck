@@ -1,20 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1 class="center">All Dates</h1>
-<div class="container">
-	<div class="index-grid">
-		{% for date in date_list %}
-			<div class="card">
-				<div class="card-content">
-					<span class="card-title">{{ date.activity }}</span>
-					<p>Partner: {{ date.partner.name }}</p>
-					<p>Date: {{ date.date }}</p>
-				</div>
-				<div class="card-action">
-					<a href="{% url 'date_detail' date.id %}"> View Details</a>
-				</div>
-			</div>
-		{% endfor %}
+{% if date_list.count == 0 %}
+	<h1 class="center">No Dates Scheduled Yet</h1>
+	<div class="container">
+		<div class="box">
+			<h5>See our list of date spots for future dates</h3>
+			<a href="{% url 'location_index' %}"><button class="btn">View All Locations</button></a>
+		</div>
 	</div>
-</div>
+{% else %}
+	<h1 class="center">All Dates</h1>
+	<div class="container">
+		<div class="index-grid">
+			{% for date in date_list %}
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title">{{ date.activity }}</span>
+						<p>Partner: {{ date.partner.name }}</p>
+						<p>Date: {{ date.date }}</p>
+					</div>
+					<div class="card-action">
+						<a href="{% url 'date_detail' date.id %}"> View Details</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endif %}
 {% endblock %}

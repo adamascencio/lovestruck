@@ -92,7 +92,7 @@ class PartnerDetail(LoginRequiredMixin, DetailView):
 
 class PartnerUpdate(LoginRequiredMixin, UpdateView):
     model = Partner
-    fields = '__all__'
+    fields = ['name', 'notes']
 
 
 class PartnerDelete(LoginRequiredMixin, DeleteView):
