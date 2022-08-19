@@ -14,8 +14,8 @@ Lovestruck is a date planning app that allows users to manage their busy dating 
 ![Django](https://img.shields.io/badge/-Django-05122A?style=flat&logo=django)
 ![Trello](https://img.shields.io/badge/-Trello-05122A?style=flat&logo=trello)
 ![Heroku](https://img.shields.io/badge/-Heroku-05122A?style=flat&logo=heroku)
-![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
 ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
+![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
 ![Materialize CSS](https://img.shields.io/badge/-Materialize_CSS-05122A?style=flat&logo=materialdesign)
 
 ## :link: **Important Links**
